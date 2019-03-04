@@ -1,15 +1,20 @@
 package unit
 
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
 import shoppingcart.*
 class InventoryTest {
 
+    @BeforeEach
+    fun init() {
+        Inventory.buildInventory(true)
+
+    }
     @Test
     fun `add items to inventory`() {
-        val inventory = Inventory()
-        Inventory.buildInventory()
         assertEquals(30, Inventory.itemCount(Item.bread))
         Inventory.addItems(1.bread)
         Inventory.addItems(6.coffee)
@@ -19,8 +24,6 @@ class InventoryTest {
     }
 
     @Test fun `remove items from inventory`(){
-        val inventory = Inventory()
-        Inventory.buildInventory()
         Inventory.removeItems(1.bread)
         Inventory.removeItems(6.coffee)
         assertEquals(29, Inventory.itemCount(Item.bread))

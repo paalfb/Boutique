@@ -3,10 +3,11 @@ package shoppingcart
 class Inventory {
 
     companion object {
-        private val inventory: MutableList<ItemQuantity> = mutableListOf()
+        private var inventory: MutableList<ItemQuantity> = mutableListOf()
 
 
-        fun buildInventory() {
+        fun buildInventory(cleanup: Boolean) {
+            if (cleanup) inventory.clear()
             inventory.add(30.bread)
             inventory.add(40.juice)
             inventory.add(50.chocolate)
