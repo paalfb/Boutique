@@ -1,6 +1,7 @@
 package unit
 
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.BeforeAll
 import shoppingcart.*
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
@@ -23,14 +24,14 @@ internal class ShoppingCartTest {
     @Test fun `remove items`(){
         val shoppingCart = ShoppingCart()
         shoppingCart.addItems(4.eggs)
-        shoppingCart.removeItems(shoppingCart, 2.eggs)
+        shoppingCart.removeItems(2.eggs)
         assertEquals(2, shoppingCart.itemCount(Item.eggs), "removeItem")
-        shoppingCart.removeItems(shoppingCart, 2.eggs)
+        shoppingCart.removeItems(2.eggs)
         assertEquals(0,shoppingCart.itemCount(Item.eggs),"removeItem")
-        shoppingCart.removeItems(shoppingCart, 1.eggs)
+        shoppingCart.removeItems(1.eggs)
         assertEquals(0, shoppingCart.itemCount(Item.eggs),"removeItem")
         shoppingCart.addItems(5.juice)
-        shoppingCart.removeItems(shoppingCart, 6.juice)
+        shoppingCart.removeItems(6.juice)
         assertEquals(0, shoppingCart.itemCount(Item.juice),"removeItem")
 
     }

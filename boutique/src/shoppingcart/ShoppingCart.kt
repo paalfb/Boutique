@@ -15,19 +15,19 @@ class ShoppingCart {
         }
     }
 
-    fun removeItems(shoppingCart: ShoppingCart, other: ItemQuantity) {
+    fun removeItems(other: ItemQuantity) {
         when {
             (this.shoppingCart.containsItem(other.item)) -> {
                 when {
                     (this.shoppingCart[this.shoppingCart.getKey(other.item)].qty > other.qty) -> {
                         this.shoppingCart.set(
                                 this.shoppingCart.indexOf(this.shoppingCart[this.shoppingCart.getKey(other.item)]),
-                                ItemQuantity(shoppingCart.shoppingCart[this.shoppingCart.getKey(other.item)].qty - other.qty,
-                                        this.shoppingCart[shoppingCart.shoppingCart.getKey(other.item)].item))
+                                ItemQuantity(this.shoppingCart[this.shoppingCart.getKey(other.item)].qty - other.qty,
+                                        this.shoppingCart[this.shoppingCart.getKey(other.item)].item))
 
                     }
-                    (shoppingCart.shoppingCart[shoppingCart.shoppingCart.getKey(other.item)].qty <= other.qty) -> {
-                        shoppingCart.shoppingCart.removeAt(shoppingCart.shoppingCart.getKey(other.item))
+                    (this.shoppingCart[this.shoppingCart.getKey(other.item)].qty <= other.qty) -> {
+                        this.shoppingCart.removeAt(this.shoppingCart.getKey(other.item))
                     }
                 }
             }
