@@ -2,6 +2,7 @@ package unit
 
 import org.junit.jupiter.api.Test
 import shoppingcart.*
+import shoppingcart.Item.Companion.bread
 import kotlin.test.assertEquals
 import kotlin.test.assertNotEquals
 
@@ -29,6 +30,10 @@ internal class QuantityTest {
         assertNotEquals(2.bread, 3.bread -2.bread)
         assertEquals(0.bread, 3.bread - 3.bread)
         assertEquals(0.cheese, 4.cheese - 4.cheese)
+    }
+
+    @Test fun `item with largest quantity`() {
+        assertEquals(5.bread, arrayListOf(2.juice, 5.bread, 1.eggs).most())
     }
 
 }

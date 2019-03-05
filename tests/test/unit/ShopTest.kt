@@ -2,10 +2,10 @@ package unit
 
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.BeforeAll
+import shoppingcart.*
 
-import shoppingcart.Customer
-import shoppingcart.Shop
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
 class ShopTest {
     var shop: Shop
@@ -33,5 +33,4 @@ class ShopTest {
 
 
     }
-
 }

@@ -31,4 +31,13 @@ class CustomerTest {
         assertEquals(1, customer.ItemCount(Item.bread))
         customer.remove()
     }
+
+    @Test fun `Get total price for all items`() {
+        val customer: Customer = Customer("Are A")
+        customer.addItems(3.bread) // 67.50
+        customer.addItems(2.juice) // 30.60
+        customer.addItems(1.eggs) // 13.10
+        assertEquals("111.5", customer.totalPrice())
+        customer.remove()
+    }
 }

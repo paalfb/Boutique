@@ -1,24 +1,34 @@
 package shoppingcart
 
+import java.math.BigDecimal
+
 class Item {
 
     companion object {
-        val bread = Item("Bread")
-        val juice = Item("Juice")
-        val chocolate = Item("Chocolate")
-        val coffee = Item("Coffee")
-        val strawberryJam = Item("Strawberry Jam")
-        val cheese = Item("Cheese")
-        val eggs = Item("Eggs")
+        val bread = Item("Bread", 22.60)
+        val juice = Item("Juice", 15.30)
+        val chocolate = Item("Chocolate", 25.80)
+        val coffee = Item("Coffee", 18.40)
+        val strawberryJam = Item("Strawberry Jam", 10.00)
+        val cheese = Item("Cheese", 57.70)
+        val eggs = Item("Eggs", 13.10)
     }
 
     private val itemName: String
+    private val itemPrice: Double
 
     private constructor(itemName: String) {
         this.itemName = itemName
+        this.itemPrice = 0.0
+    }
+    private constructor(itemName: String, itemPrice: Double) {
+        this.itemName = itemName
+        this.itemPrice = itemPrice
     }
 
-    fun itemName(): String = this.itemName
+    internal fun itemName(): String = this.itemName
+    internal fun itemPrice(): Double = this.itemPrice
+
 
     override fun equals(other: Any?): Boolean {
         return when {
@@ -46,3 +56,10 @@ val Number.coffee get() = ItemQuantity(this.toInt(), Item.coffee)
 val Number.strawberryJam get() = ItemQuantity(this.toInt(), Item.strawberryJam)
 val Number.cheese get() = ItemQuantity(this.toInt(), Item.cheese)
 val Number.eggs get() = ItemQuantity(this.toInt(), Item.eggs)
+val String.bread get() = Item.bread.itemName()
+val String.juice get() = Item.juice.itemName()
+val String.chocolate get() = Item.chocolate.itemName()
+val String.coffee get() = Item.cheese.itemName()
+val String.strawberry get() = Item.strawberryJam.itemName()
+val String.cheese get() = Item.cheese.itemName()
+val String.eggs get() = Item.eggs.itemName()

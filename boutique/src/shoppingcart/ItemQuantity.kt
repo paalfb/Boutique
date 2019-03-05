@@ -1,7 +1,8 @@
 package shoppingcart
 
-class ItemQuantity internal constructor(internal val qty: Int, internal var item: Item) {
+class ItemQuantity internal constructor(internal val qty: Int, internal var item: Item) : Orderable<ItemQuantity> {
 
+    override fun isMoreThan(other: ItemQuantity): Boolean = this.qty > other.qty
 
     internal fun erSammeVareType(other: ItemQuantity): Boolean = this.item.equals(other.item)
 

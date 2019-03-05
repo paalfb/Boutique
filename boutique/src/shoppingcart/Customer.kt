@@ -1,5 +1,7 @@
 package shoppingcart
 
+import java.math.BigDecimal
+
 
 class Customer constructor(private val name: String,
                                    private val customerNumber: Number = Customer.getCustomerNumber()) {
@@ -39,6 +41,8 @@ class Customer constructor(private val name: String,
     override fun toString(): String {
         return "Customer(name='$name', customerNumber=$customerNumber)"
     }
+
+    fun totalPrice() : String? = ShoppingCart.totalPrice(this.shoppingCart)
 
 
 }
